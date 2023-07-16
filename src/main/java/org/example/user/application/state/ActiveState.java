@@ -1,8 +1,9 @@
 package org.example.user.application.state;
+import org.example.interfaces.application.command.Interfaces;
 import org.example.user.application.User;
 
 public class ActiveState extends States {
-    ActiveState(User user) {
+    public ActiveState(User user) {
         super(user);
     }
 
@@ -18,7 +19,11 @@ public class ActiveState extends States {
 
     @Override
     public boolean needsCheckSelfie() {
-        return true;
+        if (!user.isCheckedSelfie()) {
+            return true;
+        }
+
+        return new Interfaces().checkSelfie(user.getName());
     }
 
     @Override

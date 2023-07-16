@@ -3,7 +3,7 @@ package org.example.user.application.state;
 import org.example.user.application.User;
 
 public class DormancyState extends States {
-    DormancyState(User user) {
+    public DormancyState(User user) {
         super(user);
     }
 
